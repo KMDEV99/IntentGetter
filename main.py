@@ -1,6 +1,5 @@
 #! /usr/bin/python3
 
-from sys import argv
 import click
 from classification_dict import classification_dict
 from intent_getter import create_regex, get_intent

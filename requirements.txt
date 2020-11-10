@@ -1,0 +1,3 @@
+Requires click package.
+
+Tested on Python 3.8
