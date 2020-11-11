@@ -40,6 +40,10 @@ class Test(TestCase):
             output = self.iG.get_intent(key)
             self.assertEqual(value, output, msg="%s: %s" % (key, output))
 
+    def test_get_intent_ignore_special_characters(self):
+        output = self.iG.get_intent("#@!tak#@!")
+        self.assertEqual("tak", output)
+
     def test_get_intent_basic_sentences(self):
         example_dict = {
             "tak": "tak",
