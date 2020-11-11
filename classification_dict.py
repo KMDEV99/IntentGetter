@@ -2,6 +2,7 @@ from collections import OrderedDict
 
 classification_dict = OrderedDict({
     "skad mam wiedziec": "nie wiem",
+    "nie znam odpowiedzi": "nie wiem",
     "nie wiem": "nie wiem",
     "nie mam pojecia": "nie wiem",
     "nie mam zielonego pojecia": "nie wiem",
@@ -25,7 +26,6 @@ classification_dict = OrderedDict({
     "naturalnie": "tak",
     "nie inaczej": "tak",
     "nie ma dwoch zdan": "tak",
-    "oczywiscie, ze nie": "nie",
     "oczywiscie ze nie": "nie",
     "oczywiscie": "tak",
     "owszem": "tak",

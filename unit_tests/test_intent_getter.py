@@ -5,44 +5,48 @@ from classification_dict import classification_dict
 
 class Test(TestCase):
     def setUp(self):
-        self.iG = intentGetter()
+        self.ig = IntentGetter()
 
     def test_get_intent_one_word_tak(self):
-        output = self.iG.get_intent("tak")
+        output = self.ig.get_intent("tak")
         self.assertEqual("tak", output)
 
     def test_get_intent_one_word_nie(self):
-        output = self.iG.get_intent("nie")
+        output = self.ig.get_intent("nie")
         self.assertEqual("nie", output)
 
     def test_get_intent_one_word_niewiem(self):
-        output = self.iG.get_intent("nie wiem")
+        output = self.ig.get_intent("nie wiem")
         self.assertEqual("nie wiem", output)
 
     def test_get_intent_one_word_brak(self):
-        output = self.iG.get_intent("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lor")
+        output = self.ig.get_intent("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lor")
         self.assertEqual("brak", output)
 
     def test_get_intent_two_words_tak(self):
-        output = self.iG.get_intent("mi tak")
+        output = self.ig.get_intent("mi tak")
         self.assertEqual("tak", output)
 
     def test_get_intent_uppercase(self):
-        output = self.iG.get_intent("Od dzisiaj AbsoluTnie lubię poniedziałek")
+        output = self.ig.get_intent("Od dzisiaj AbsoluTnie lubię poniedziałek")
         self.assertEqual("tak", output)
 
     def test_get_intent_special_characters(self):
-        output = self.iG.get_intent("Lubię jeść marmoladę łyżką oraz oczywiście też źle")
+        output = self.ig.get_intent("Lubię jeść marmoladę łyżką oraz oczywiście też źle")
         self.assertEqual("tak", output)
 
     def test_get_intent_all(self):
         for key, value in classification_dict.items():
-            output = self.iG.get_intent(key)
+            output = self.ig.get_intent(key)
             self.assertEqual(value, output, msg="%s: %s" % (key, output))
 
     def test_get_intent_ignore_special_characters(self):
-        output = self.iG.get_intent("#@!tak#@!")
+        output = self.ig.get_intent("#@!tak#@!")
         self.assertEqual("tak", output)
+
+    def test_get_intent_ignore_special_punctuation(self):
+        output = self.ig.get_intent("oczywiscie, ze nie")
+        self.assertEqual("nie", output)
 
     def test_get_intent_basic_sentences(self):
         example_dict = {
@@ -64,5 +68,5 @@ class Test(TestCase):
             "nie widzę przeszkód": "tak",
         }
         for key, value in example_dict.items():
-            output = self.iG.get_intent(key)
+            output = self.ig.get_intent(key)
             self.assertEqual(value, output, msg="%s: %s" % (key, output))
