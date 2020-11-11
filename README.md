@@ -1,6 +1,6 @@
 # IntentGetter
 
-Returns intent behind given sentence, yes/no/I don't know (Polish)
+Returns intent behind given sentence, tak/nie/nie wiem (yes/no/I don't know)
 
 Example
 ======
