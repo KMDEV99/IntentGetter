@@ -12,6 +12,8 @@ Example
 
 Requires:
 =====
+Simply use `pip install -r requirements.txt` to download all required packages.
+
 click~=7.1.2
 
 Unidecode~=1.1.1
